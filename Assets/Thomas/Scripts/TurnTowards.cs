@@ -8,6 +8,7 @@ public class TurnTowards : MonoBehaviour
     
     [SerializeField] private float baseRotationSpeed = 2f;
     [SerializeField] private float angleBasedSpeedMultiplier = 1f;
+    [SerializeField] private float maxAngularVelocity = 10f;
     [SerializeField] private float waypointReachDistance = 0.5f;
 
     [Header("Debug")]
@@ -131,7 +132,12 @@ public class TurnTowards : MonoBehaviour
         
         if (rb == null)
         {
-            Debug.Log("Rigidbody");
+            Debug.Log("TurnTowards requires a Rigidbody component");
+        }
+        else
+        {
+            //set max angular velocity
+            rb.maxAngularVelocity = maxAngularVelocity;
         }
         
         if (TempPosition != Vector3.zero)
