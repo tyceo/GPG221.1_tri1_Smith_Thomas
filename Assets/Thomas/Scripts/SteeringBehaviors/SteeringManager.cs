@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
@@ -113,8 +114,8 @@ public class SteeringManager : MonoBehaviour
             if (cohesion != null)
                 cohesion.enabled = !leftOrRightHittingWall;
             
-            if (separation != null)
-                separation.enabled = !leftOrRightHittingWall;
+            //if (separation != null)
+                //separation.enabled = !leftOrRightHittingWall;
         }
 
         //manual set path
@@ -190,14 +191,22 @@ public class SteeringManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("failed to recalculate path");
+            //Debug.Log("failed to recalculate path");
             
-            //just go somewhere else if the pathfinding fails
+            //try again if the pathfinding fails
             if (autoPathfind)
             {
-                PathfindToRandomSpot();
+                
+                StartCoroutine(TryAgain());
             }
         }
+    }
+
+    IEnumerator TryAgain()
+    {
+        yield return new WaitForSeconds(1f);
+        RecalculatePathToCurrentGoal();
+        
     }
 
     public void PathfindToRandomSpot()
@@ -229,7 +238,7 @@ public class SteeringManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("random path failed");
+                //Debug.Log("random path failed");
                 hasGoal = false;
                 
                 //try again
@@ -241,7 +250,7 @@ public class SteeringManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("no valid spot to path too");
+            //Debug.Log("no valid spot to path too");
         }
     }
 
@@ -250,7 +259,7 @@ public class SteeringManager : MonoBehaviour
         //get all walkable nodes from the grid
         if (nodeGrid.openList.Count == 0)
         {
-            Debug.Log("no valid spot to path too");
+            //Debug.Log("no valid spot to path too");
             return null;
         }
 
@@ -291,7 +300,7 @@ public class SteeringManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("path to target location failed");
+                //Debug.Log("path to target location failed");
                 hasGoal = false;
                 
                 //try again with another location

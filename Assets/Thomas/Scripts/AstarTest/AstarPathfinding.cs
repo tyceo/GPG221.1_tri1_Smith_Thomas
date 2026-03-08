@@ -61,7 +61,7 @@ public class AstarPathfinding : MonoBehaviour
             }
 
             
-            foreach (Node neighbour in GetNeighbours(currentNode))
+            foreach (Node neighbour in GetNeighbours(currentNode, true))
             {
                 //skip blocked or ones in the closed list
                 if (!neighbour.walkable || closedList.Contains(neighbour))
@@ -94,7 +94,7 @@ public class AstarPathfinding : MonoBehaviour
         }
 
         //no path found
-        Debug.Log("no path found");
+        //Debug.Log("no path found");
         return new List<Node>();
     }
 
@@ -149,15 +149,57 @@ public class AstarPathfinding : MonoBehaviour
                 int checkY = node.gridY + y;
 
                 //check if within grid bounds
-                if (checkX >= 0 && checkX < nodeGrid.MaxSize && 
-                    checkY >= 0 && checkY < nodeGrid.MaxSize)
+                if (checkX >= 0 && checkX < nodeGrid.GridSizeX && 
+                    checkY >= 0 && checkY < nodeGrid.GridSizeY)
                 {
-                    Node neighbourNode = nodeGrid.NodeFromWorldPoint(
-                        node.worldPosition + new Vector3(x, 0, y)
-                    );
+                    Node neighbourNode = nodeGrid.GetNode(checkX, checkY);
                     
                     if (neighbourNode != null)
                     {
+                        //if avoiding neighbors of unwalkable nodes, check if this neighbor has any unwalkable neighbors
+                        if (avoidNeighborsOfUnwalkable && !neighbourNode.walkable)
+                        {
+                            continue; //skip unwalkable nodes themselves
+                        }
+                        
+                        if (avoidNeighborsOfUnwalkable && neighbourNode.walkable)
+                        {
+                            //check if this walkable node has any unwalkable neighbors
+                            bool hasUnwalkableNeighbor = false;
+                            
+                            for (int nx = -1; nx <= 1; nx++)
+                            {
+                                for (int ny = -1; ny <= 1; ny++)
+                                {
+                                    if (nx == 0 && ny == 0)
+                                        continue;
+                                    
+                                    int nCheckX = neighbourNode.gridX + nx;
+                                    int nCheckY = neighbourNode.gridY + ny;
+                                    
+                                    if (nCheckX >= 0 && nCheckX < nodeGrid.GridSizeX && 
+                                        nCheckY >= 0 && nCheckY < nodeGrid.GridSizeY)
+                                    {
+                                        Node adjacentNode = nodeGrid.GetNode(nCheckX, nCheckY);
+                                        if (adjacentNode != null && !adjacentNode.walkable)
+                                        {
+                                            hasUnwalkableNeighbor = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                                
+                                if (hasUnwalkableNeighbor)
+                                    break;
+                            }
+                            
+                            //skip this neighbor if it's adjacent to a blocked node
+                            if (hasUnwalkableNeighbor)
+                            {
+                                continue;
+                            }
+                        }
+                        
                         neighbours.Add(neighbourNode);
                     }
                 }

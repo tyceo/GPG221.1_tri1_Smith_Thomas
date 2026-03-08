@@ -221,7 +221,7 @@ MonoBehaviour:
   baseRotationSpeed: 20
   angleBasedSpeedMultiplier: 1
   maxAngularVelocity: 10
-  waypointReachDistance: 1
+  waypointReachDistance: 1.5
   showDebugLine: 0
   debugLineColor: {r: 0, g: 1, b: 0, a: 1}
   pathColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detector: {fileID: 0}
   rb: {fileID: 0}
-  speed: 0.2
+  speed: 0.3
   showDebugRay: 1
 --- !u!114 &1504843351277768692
 MonoBehaviour:
@@ -723,8 +723,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayDistance: 1
-  showDebugRay: 1
-  turnSpeed: 5.33
+  showDebugRay: 0
+  turnSpeed: 5
   targetLayers:
     serializedVersion: 2
     m_Bits: 8
