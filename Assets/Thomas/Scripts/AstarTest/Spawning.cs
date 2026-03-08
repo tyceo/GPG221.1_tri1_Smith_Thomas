@@ -12,6 +12,8 @@ public class Spawning : MonoBehaviour
     [SerializeField] public bool showAllNPCPaths = false;
     [SerializeField] public bool showAlignDebug = false;
     [SerializeField] public bool showAvoidDebug = false;
+    [SerializeField] public bool showSeparationDebug = false;
+    [SerializeField] public bool showCohesionDebug = false;
     
     private List<TurnTowards> spawnedNPCs = new List<TurnTowards>();
 
@@ -32,6 +34,18 @@ public class Spawning : MonoBehaviour
         UpdateAvoidDebugForAllNPCs();
     }
     
+    public void ToggleShowAllSeparationDebug()
+    {
+        showSeparationDebug = !showSeparationDebug;
+        UpdateSeparationDebugForAllNPCs();
+    }   
+    
+    public void ToggleShowAllCohesionDebug()
+    {
+        showCohesionDebug = !showCohesionDebug;
+        UpdateCohesionDebugForAllNPCs();
+    }  
+    
     void Start()
     {
         SpawnInGrid();
@@ -39,8 +53,7 @@ public class Spawning : MonoBehaviour
 
     void Update()
     {
-        
-        
+
     }
     
     void UpdateAlignDebugForAllNPCs()
@@ -68,6 +81,36 @@ public class Spawning : MonoBehaviour
                 foreach (Avoid avoid in avoidScripts)
                 {
                     avoid.showDebugRay = showAvoidDebug;
+                }
+            }
+        }
+    }
+    
+    void UpdateSeparationDebugForAllNPCs()
+    {
+        foreach (TurnTowards npc in spawnedNPCs)
+        {
+            if (npc != null)
+            {
+                Separation separation = npc.GetComponent<Separation>();
+                if (separation != null)
+                {
+                    separation.showDebugRay = showSeparationDebug;
+                }
+            }
+        }
+    }
+    
+    void UpdateCohesionDebugForAllNPCs()
+    {
+        foreach (TurnTowards npc in spawnedNPCs)
+        {
+            if (npc != null)
+            {
+                Cohesion cohesion = npc.GetComponent<Cohesion>();
+                if (cohesion != null)
+                {
+                    cohesion.showDebugRay = showCohesionDebug;
                 }
             }
         }

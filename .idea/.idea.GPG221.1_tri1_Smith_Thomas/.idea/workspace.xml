@@ -7,24 +7,8 @@
     <list default="true" id="5e568608-cb27-44a1-adde-21d6c2a3ed7e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GPG221.1_tri1_Smith_Thomas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GPG221.1_tri1_Smith_Thomas/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Thomas/Prefabs/NPC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Prefabs/NPC.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scenes/AstarScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scenes/AstarScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/AstarPathfinding.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/AstarPathfinding.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/Avoid.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/Avoid.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/MoveForward.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/MoveForward.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/NodeGrid.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/NodeGrid.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/Spawning.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/Spawning.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/TurnTowards.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/TurnTowards.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/Wander.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/Wander.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scenes/SteeringBehaviour.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scenes/SteeringBehaviour.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/AstarTest/Spawning.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/AstarTest/Spawning.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +17,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/Cohesion.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/Separation.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -124,7 +112,7 @@
       <option name="presentableId" value="Default" />
       <updated>1772850801448</updated>
       <workItem from="1772850803587" duration="12021000" />
-      <workItem from="1772941195436" duration="6094000" />
+      <workItem from="1772941195436" duration="9027000" />
     </task>
     <servers />
   </component>
