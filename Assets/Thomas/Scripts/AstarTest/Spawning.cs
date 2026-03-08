@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor.XR;
 
 public class Spawning : MonoBehaviour
 {
@@ -16,30 +17,29 @@ public class Spawning : MonoBehaviour
     [SerializeField] public bool showCohesionDebug = false;
     
     private List<TurnTowards> spawnedNPCs = new List<TurnTowards>();
+    
+    //Spawn Boot
+    public GameObject boot;
 
     public void ToggleShowAllPaths()
     {
         showAllNPCPaths = !showAllNPCPaths;
     }
-    
     public void ToggleShowAllAlignDebug()
     {
         showAlignDebug = !showAlignDebug;
         UpdateAlignDebugForAllNPCs();
     }
-    
     public void ToggleShowAllAvoidDebug()
     {
         showAvoidDebug = !showAvoidDebug;
         UpdateAvoidDebugForAllNPCs();
     }
-    
     public void ToggleShowAllSeparationDebug()
     {
         showSeparationDebug = !showSeparationDebug;
         UpdateSeparationDebugForAllNPCs();
-    }   
-    
+    }
     public void ToggleShowAllCohesionDebug()
     {
         showCohesionDebug = !showCohesionDebug;
@@ -55,6 +55,30 @@ public class Spawning : MonoBehaviour
     {
 
     }
+
+    public void SpawnBoot()
+    {
+        boot.SetActive(true);
+        StartCoroutine(RecreateGridAndRecalculatePaths());
+    }
+
+    private System.Collections.IEnumerator RecreateGridAndRecalculatePaths()
+    {
+        yield return new WaitForSeconds(4f);
+        
+        NodeGrid nodeGrid = GetComponent<NodeGrid>();
+        if (nodeGrid != null)
+        {
+            //recreate the grid
+            nodeGrid.SendMessage("CreateGrid");
+            
+            //recalculate paths for all NPCs
+            PathfindAllNPCs();
+            
+            Debug.Log("Grid recreated and paths recalculated");
+        }
+    }
+    
     
     void UpdateAlignDebugForAllNPCs()
     {
@@ -125,7 +149,7 @@ public class Spawning : MonoBehaviour
                 SteeringManager steeringManager = npc.GetComponent<SteeringManager>();
                 if (steeringManager != null)
                 {
-                    steeringManager.PathfindToRandomSpot();
+                    steeringManager.PathfindToRandomTargetLocation();
                 }
             }
         }

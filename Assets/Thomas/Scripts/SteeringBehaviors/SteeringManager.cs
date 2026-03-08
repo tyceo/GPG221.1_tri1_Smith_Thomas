@@ -11,6 +11,10 @@ public class SteeringManager : MonoBehaviour
     private GameObject leftObject;
     private GameObject rightObject;
 
+    private Align align;
+    private Cohesion cohesion;
+    private Separation separation;
+
     [Header("Pathfinding")]
     [SerializeField] private NodeGrid nodeGrid;
     [SerializeField] private AstarPathfinding pathfinding;
@@ -20,9 +24,13 @@ public class SteeringManager : MonoBehaviour
     
     [SerializeField] private float pathRecalculateInterval = 5f; //recalculate path every 5 seconds 
 
+    [SerializeField] private List<GameObject> targetLocations = new List<GameObject>(); //list of locations to pathfind to
+    [SerializeField] private GameObject anthill; //anthill to return to after reaching target
+    
     private Vector3 currentGoal;
     private bool hasGoal = false;
     private float timeSinceLastRecalculation = 0f;
+    private bool returningToAnthill = false;
 
     void Start()
     {
@@ -48,6 +56,11 @@ public class SteeringManager : MonoBehaviour
             pathfinding = FindObjectOfType<AstarPathfinding>();
         if (turnTowards == null)
             turnTowards = GetComponent<TurnTowards>();
+
+        // Get references to steering behavior components
+        align = GetComponent<Align>();
+        cohesion = GetComponent<Cohesion>();
+        separation = GetComponent<Separation>();
 
         //path completion event
         if (turnTowards != null)
@@ -89,10 +102,25 @@ public class SteeringManager : MonoBehaviour
             }
         }
 
+        // Disable steering behaviors when left or right objects hit a wall
+        if (leftAvoid != null && rightAvoid != null)
+        {
+            bool leftOrRightHittingWall = IsHittingWall(leftAvoid) || IsHittingWall(rightAvoid);
+            
+            if (align != null)
+                align.enabled = !leftOrRightHittingWall;
+            
+            if (cohesion != null)
+                cohesion.enabled = !leftOrRightHittingWall;
+            
+            if (separation != null)
+                separation.enabled = !leftOrRightHittingWall;
+        }
+
         //manual set path
         if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            PathfindToRandomSpot();
+            PathfindToRandomTargetLocation();
         }
 
         //recalculate path every X seconds
@@ -108,6 +136,21 @@ public class SteeringManager : MonoBehaviour
         }
     }
 
+    private bool IsHittingWall(Avoid avoid)
+    {
+        if (avoid == null || !avoid.isHitting)
+            return false;
+        
+        // Check if the hit object has the "Wall" layer
+        RaycastHit hit;
+        if (Physics.Raycast(avoid.transform.position, avoid.transform.forward, out hit, 10f))
+        {
+            return hit.collider.gameObject.layer == LayerMask.NameToLayer("Wall");
+        }
+        
+        return false;
+    }
+
     //called when path is complete
     void OnPathReached()
     {
@@ -116,7 +159,18 @@ public class SteeringManager : MonoBehaviour
         
         if (autoPathfind)
         {
-            PathfindToRandomSpot();
+            if (returningToAnthill)
+            {
+                //reached anthill, now go to a random target location
+                returningToAnthill = false;
+                PathfindToRandomTargetLocation();
+            }
+            else
+            {
+                //reached target location, now return to anthill
+                returningToAnthill = true;
+                PathfindToAnthill();
+            }
         }
     }
 
@@ -203,5 +257,91 @@ public class SteeringManager : MonoBehaviour
         //picks a random walkable node
         int randomIndex = Random.Range(0, nodeGrid.openList.Count);
         return nodeGrid.openList[randomIndex];
+    }
+    
+    public void PathfindToRandomTargetLocation()
+    {
+        if (nodeGrid == null || pathfinding == null || turnTowards == null)
+        {
+            return;
+        }
+        
+        if (targetLocations.Count == 0)
+        {
+            Debug.Log("No target locations in list");
+            return;
+        }
+        
+        //pick a random target location
+        GameObject randomTarget = targetLocations[Random.Range(0, targetLocations.Count)];
+        
+        if (randomTarget != null)
+        {
+            currentGoal = randomTarget.transform.position;
+            hasGoal = true;
+            timeSinceLastRecalculation = 0f;
+            returningToAnthill = false;
+            
+            //calculate path
+            List<Node> path = pathfinding.FindPath(transform.position, currentGoal);
+            
+            if (path.Count > 0)
+            {
+                turnTowards.SetPath(path);
+            }
+            else
+            {
+                Debug.Log("path to target location failed");
+                hasGoal = false;
+                
+                //try again with another location
+                if (autoPathfind)
+                {
+                    Invoke(nameof(PathfindToRandomTargetLocation), 0.5f);
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("target location is null");
+        }
+    }
+    
+    public void PathfindToAnthill()
+    {
+        if (nodeGrid == null || pathfinding == null || turnTowards == null)
+        {
+            return;
+        }
+        
+        if (anthill == null)
+        {
+            Debug.Log("Anthill is not assigned");
+            return;
+        }
+        
+        currentGoal = anthill.transform.position;
+        hasGoal = true;
+        timeSinceLastRecalculation = 0f;
+        returningToAnthill = true;
+        
+        //calculate path
+        List<Node> path = pathfinding.FindPath(transform.position, currentGoal);
+        
+        if (path.Count > 0)
+        {
+            turnTowards.SetPath(path);
+        }
+        else
+        {
+            Debug.Log("path to anthill failed");
+            hasGoal = false;
+            
+            //try again
+            if (autoPathfind)
+            {
+                Invoke(nameof(PathfindToAnthill), 0.5f);
+            }
+        }
     }
 }

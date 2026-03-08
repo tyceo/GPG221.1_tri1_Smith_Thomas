@@ -28,7 +28,7 @@ public class AstarPathfinding : MonoBehaviour
         //check if start or target are unwalkable
         if (!startNode.walkable || !targetNode.walkable)
         {
-            Debug.Log("Start or target position is not walkable, attempting pathfinding anyway as backup");
+            //Debug.Log("Start or target position is not walkable, attempting pathfinding anyway as backup");
             //continue with pathfinding anyway
         }
 

@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e568608-cb27-44a1-adde-21d6c2a3ed7e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scenes/Scene1.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scenes/Scene1.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GPG221.1_tri1_Smith_Thomas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GPG221.1_tri1_Smith_Thomas/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Prefabs/NPCAnt.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Prefabs/NPCAnt.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scenes/Final.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scenes/Final.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/AstarTest/AstarPathfinding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/AstarTest/AstarPathfinding.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/AstarTest/NodeGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/AstarTest/NodeGrid.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/AstarTest/Spawning.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/AstarTest/Spawning.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/SteeringManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/SteeringManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +24,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/Cohesion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/Separation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@7652a5c7e246/Shaders/Lit.shader" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -111,7 +116,7 @@
       <option name="presentableId" value="Default" />
       <updated>1772850801448</updated>
       <workItem from="1772850803587" duration="12021000" />
-      <workItem from="1772941195436" duration="9686000" />
+      <workItem from="1772941195436" duration="16410000" />
     </task>
     <servers />
   </component>

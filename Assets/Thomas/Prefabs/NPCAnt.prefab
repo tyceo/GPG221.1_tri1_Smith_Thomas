@@ -169,6 +169,12 @@ MonoBehaviour:
   turnTowards: {fileID: 0}
   autoPathfind: 1
   pathRecalculateInterval: 5
+  targetLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  anthill: {fileID: 0}
 --- !u!114 &2437899716101004988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,7 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detector: {fileID: 0}
   rb: {fileID: 0}
-  speed: 0.1
+  speed: 0.2
   showDebugRay: 1
 --- !u!114 &1504843351277768692
 MonoBehaviour:
