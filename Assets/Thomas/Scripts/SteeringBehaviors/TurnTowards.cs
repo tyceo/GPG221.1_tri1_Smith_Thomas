@@ -15,7 +15,9 @@ public class TurnTowards : MonoBehaviour
     [SerializeField] private bool showDebugLine = true;
     [SerializeField] private Color debugLineColor = Color.green;
     [SerializeField] private Color pathColor = Color.yellow;
-    [SerializeField] private bool showAllNodes = false; 
+    [SerializeField] private bool showAllNodes = false;
+    
+    public static bool globalShowPaths = false; //controlled by Spawning script
 
     
     private Vector3 targetPosition;
@@ -208,9 +210,59 @@ public class TurnTowards : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        //path visualization
-        if (!showDebugLine) return;
+        //check both local and global visibility settings
+        if (!showDebugLine && !globalShowPaths) return;
 
+        DrawPathGizmos();
+    }
+
+    private void Update()
+    {
+        //draw in game view
+        if (showDebugLine || globalShowPaths)
+        {
+            DrawPathDebugLines();
+        }
+    }
+
+    private void DrawPathDebugLines()
+    {
+        //draw current target
+        if (hasTarget)
+        {
+            Debug.DrawLine(transform.position, targetPosition, debugLineColor);
+        }
+
+        //draw the original path
+        if (showAllNodes && isFollowingPath && originalPath.Count > 0)
+        {
+            for (int i = 0; i < originalPath.Count - 1; i++)
+            {
+                Debug.DrawLine(originalPath[i].worldPosition, originalPath[i + 1].worldPosition, Color.gray);
+            }
+        }
+
+        //draw turning points path
+        if (isFollowingPath && turningPoints.Count > 0)
+        {
+            //draw lines between waypoints
+            for (int i = 0; i < turningPoints.Count - 1; i++)
+            {
+                Color lineColor;
+                if (i < currentWaypointIndex)
+                    lineColor = Color.gray;
+                else if (i == currentWaypointIndex)
+                    lineColor = Color.green;
+                else
+                    lineColor = pathColor;
+                
+                Debug.DrawLine(turningPoints[i], turningPoints[i + 1], lineColor);
+            }
+        }
+    }
+    
+    public void DrawPathGizmos()
+    {
         //draw current target
         if (hasTarget)
         {

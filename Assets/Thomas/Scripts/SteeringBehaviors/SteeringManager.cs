@@ -146,7 +146,7 @@ public class SteeringManager : MonoBehaviour
         }
     }
 
-    void PathfindToRandomSpot()
+    public void PathfindToRandomSpot()
     {
         if (nodeGrid == null || pathfinding == null)
         {
