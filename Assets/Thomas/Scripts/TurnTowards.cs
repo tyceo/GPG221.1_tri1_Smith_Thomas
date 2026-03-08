@@ -7,9 +7,8 @@ public class TurnTowards : MonoBehaviour
     public Vector3 TempPosition;
     
     [SerializeField] private float baseRotationSpeed = 2f;
-    [SerializeField] private float maxRotationSpeed = 5f;
-    [SerializeField] private float speedIncreaseDistance = 10f;
-    [SerializeField] private float waypointReachDistance = 0.5f; 
+    [SerializeField] private float angleBasedSpeedMultiplier = 1f;
+    [SerializeField] private float waypointReachDistance = 0.5f;
 
     [Header("Debug")]
     [SerializeField] private bool showDebugLine = true;
@@ -23,6 +22,7 @@ public class TurnTowards : MonoBehaviour
     private bool hasTarget = false;
     private bool shouldRotate = true;
     private bool hasFinalDestination = false;
+    private Rigidbody rb;
 
    
     private List<Vector3> turningPoints = new List<Vector3>();
@@ -45,7 +45,7 @@ public class TurnTowards : MonoBehaviour
     {
         if (path == null || path.Count == 0)
         {
-            Debug.LogWarning("Trying to set empty or null path!");
+            Debug.Log("Trying to set empty or null path");
             return;
         }
 
@@ -54,7 +54,7 @@ public class TurnTowards : MonoBehaviour
         
         if (turningPoints.Count == 0)
         {
-            Debug.LogWarning("No turning points found in path!");
+            Debug.Log("No turning points found in path");
             return;
         }
 
@@ -127,15 +127,22 @@ public class TurnTowards : MonoBehaviour
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
+        
+        if (rb == null)
+        {
+            Debug.Log("Rigidbody");
+        }
+        
         if (TempPosition != Vector3.zero)
         {
             SetTarget(TempPosition);
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (!hasTarget || !shouldRotate) return;
+        if (!hasTarget || !shouldRotate || rb == null) return;
 
         //reached the current waypoint
         if (isFollowingPath && turningPoints.Count > 0)
@@ -167,30 +174,29 @@ public class TurnTowards : MonoBehaviour
         Vector3 directionToTarget = (targetPosition - transform.position).normalized;
         directionToTarget.y = 0;
         
-        if (directionToTarget != Vector3.zero)
+        if (directionToTarget != Vector3.zero)  //turns harder the further away it faces from its target
         {
             Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
             
-            //rotation speed based on distance to final destination
-            float currentRotationSpeed = baseRotationSpeed;
+            //calculate angle difference 0-180 degrees
+            float angleDifference = Quaternion.Angle(transform.rotation, targetRotation);
             
-            if (hasFinalDestination)
-            {
-                float distanceToFinalDestination = Vector3.Distance(transform.position, finalDestination);
-                
-                 //increase speed as it get closer to final destination
-                if (distanceToFinalDestination < speedIncreaseDistance)
-                {
-                    float t = 1f - (distanceToFinalDestination / speedIncreaseDistance);
-                    currentRotationSpeed = Mathf.Lerp(baseRotationSpeed, maxRotationSpeed, t);
-                }
-            }
+            //normalize angle
+            float angleMultiplier = Mathf.Clamp01(angleDifference / 180f);
             
-            transform.rotation = Quaternion.RotateTowards(
-                transform.rotation,
-                targetRotation,
-                currentRotationSpeed * Time.deltaTime
-            );
+            
+            float angleBasedSpeed = Mathf.Lerp(1f, angleBasedSpeedMultiplier, angleMultiplier);
+            
+            //final rotation speed
+            float currentRotationSpeed = baseRotationSpeed * angleBasedSpeed;
+            
+            //determine turn direction
+            Vector3 cross = Vector3.Cross(transform.forward, directionToTarget);
+            float turnDirection = Mathf.Sign(cross.y);
+            
+            //apply to rigidbody
+            Vector3 torque = new Vector3(0, turnDirection * currentRotationSpeed, 0);
+            rb.AddTorque(torque);
         }
     }
 
@@ -223,18 +229,18 @@ public class TurnTowards : MonoBehaviour
             }
         }
 
-        //draw turning points path
+        //draw just the edges
         if (isFollowingPath && turningPoints.Count > 0)
         {
             Gizmos.color = pathColor;
             
-            //draw lines between turning points
+            //draw lines
             for (int i = 0; i < turningPoints.Count - 1; i++)
             {
                 Gizmos.DrawLine(turningPoints[i], turningPoints[i + 1]);
             }
             
-            //draw spheres at each turning point
+            //draw spheres
             for (int i = 0; i < turningPoints.Count; i++)
             {
                 if (i < currentWaypointIndex)

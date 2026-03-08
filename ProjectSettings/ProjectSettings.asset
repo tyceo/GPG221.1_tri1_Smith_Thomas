@@ -843,8 +843,8 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: GPG221.1_tri1_Thomas_Smith
-  metroPackageVersion: 
+  metroPackageName: GPG221.1tri1ThomasSmith
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -852,7 +852,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: GPG221.1_tri1_Thomas_Smith
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: GPG221.1_tri1_Thomas_Smith
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0

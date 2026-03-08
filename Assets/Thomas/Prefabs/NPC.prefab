@@ -152,9 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b638fcb015de11045bb52b77b2bcd28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayDistance: 7
+  rayDistance: 3
   showDebugRay: 1
-  turnSpeed: 5
+  turnSpeed: 2
   targetLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -204,12 +204,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b638fcb015de11045bb52b77b2bcd28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayDistance: 0.59
+  rayDistance: 1
   showDebugRay: 1
-  turnSpeed: 6
+  turnSpeed: 5.33
   targetLayers:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 8
   rb: {fileID: 0}
   isHitting: 0
 --- !u!1 &4575141197092015656
@@ -355,7 +355,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.015358304, z: 0, w: 0.9998821}
   m_LocalPosition: {x: -0.05, y: 1.74, z: -6.31}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 700896757068002441}
@@ -527,11 +527,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a59a27377870a64b89c3b8c504f18e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TempPosition: {x: -23.8, y: 0.68, z: 0.45}
-  baseRotationSpeed: 500
-  maxRotationSpeed: 80
-  speedIncreaseDistance: 10
-  waypointReachDistance: 2
+  TempPosition: {x: 0, y: 0, z: 0}
+  baseRotationSpeed: 20
+  angleBasedSpeedMultiplier: 1
+  waypointReachDistance: 1
   showDebugLine: 1
   debugLineColor: {r: 0, g: 1, b: 0, a: 1}
   pathColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
@@ -595,9 +594,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b638fcb015de11045bb52b77b2bcd28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayDistance: 7
+  rayDistance: 3
   showDebugRay: 1
-  turnSpeed: 5
+  turnSpeed: 2
   targetLayers:
     serializedVersion: 2
     m_Bits: 4294967295

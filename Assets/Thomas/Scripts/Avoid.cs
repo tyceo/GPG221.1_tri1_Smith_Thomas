@@ -35,12 +35,18 @@ public class Avoid : MonoBehaviour
     {
         if (rb == null) return;
 
-        float speedBonus = Mathf.Min(rb.linearVelocity.magnitude / 5f * 3f, 3f);
-        currentRayDistance = rayDistance + speedBonus;
+        if (isForwardObject)
+        {
+            currentRayDistance = rayDistance;
+        }
+        else
+        {
+            float speedBonus = Mathf.Min(rb.linearVelocity.magnitude / 5f * 3f, 3f);
+            currentRayDistance = rayDistance + speedBonus;
+        }
 
         RaycastHit hit;
         isHitting = Physics.Raycast(transform.position, transform.forward, out hit, currentRayDistance, targetLayers, QueryTriggerInteraction.Ignore);
-        
         
         //checks to see if the npc should rotate left or right and it rotates faster the closer it gets to the obstacle
         if (isHitting)

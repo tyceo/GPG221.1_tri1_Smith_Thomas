@@ -129,6 +129,11 @@ public class AstarPathfinding : MonoBehaviour
 
     List<Node> GetNeighbours(Node node)
     {
+        return GetNeighbours(node, false);
+    }
+
+    List<Node> GetNeighbours(Node node, bool avoidNeighborsOfUnwalkable)
+    {
         List<Node> neighbours = new List<Node>();
 
         //check all 8 directions (including diagonals)
