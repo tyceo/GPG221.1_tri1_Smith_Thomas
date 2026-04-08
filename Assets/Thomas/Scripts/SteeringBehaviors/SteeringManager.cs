@@ -43,8 +43,18 @@ public class SteeringManager : MonoBehaviour
     public bool IsFoodHome;
     public bool IsScared;
 
+    public Detector detector;
+    
+    private float maxNeighbourDistance = 10f; 
     void Start()
     {
+        detector = GetComponentInChildren<Detector>();
+        
+        SphereCollider sphereCollider = detector.GetComponent<SphereCollider>();
+        if (sphereCollider != null)
+        {
+            maxNeighbourDistance = sphereCollider.radius;
+        }
         
         Transform forwardTransform = transform.Find("Forward");
         Transform leftTransform = transform.Find("Left");
@@ -90,6 +100,15 @@ public class SteeringManager : MonoBehaviour
 
     void Update()
     {
+        // Update CanSeeEnemy based on detector's humansInTrigger list
+        if (detector != null)
+        {
+            CanSeeEnemy = detector.GetHumansInTrigger().Count > 0;
+            
+            // Update CanSeeFood based on if any detected object is in targetLocations list
+            CanSeeFood = CheckIfCanSeeFood();
+        }
+        
         //if all 3 antennas are triggered disable left and right ones to stop being stuck
         if (forwardAvoid != null && leftAvoid != null && rightAvoid != null)
         {
@@ -157,6 +176,24 @@ public class SteeringManager : MonoBehaviour
         if (Physics.Raycast(avoid.transform.position, avoid.transform.forward, out hit, 10f))
         {
             return hit.collider.gameObject.layer == LayerMask.NameToLayer("Wall");
+        }
+        
+        return false;
+    }
+
+    private bool CheckIfCanSeeFood()
+    {
+        if (detector == null || targetLocations.Count == 0)
+            return false;
+        
+        List<GameObject> detectedObjects = detector.GetAllObjectsInTrigger();
+        
+        foreach (GameObject detectedObj in detectedObjects)
+        {
+            if (detectedObj != null && targetLocations.Contains(detectedObj))
+            {
+                return true;
+            }
         }
         
         return false;

@@ -6,12 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="5e568608-cb27-44a1-adde-21d6c2a3ed7e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GPG221.1_tri1_Smith_Thomas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GPG221.1_tri1_Smith_Thomas/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Anthill/Examples/Tanks/Scripts/Components/Controls/TankControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Anthill/Examples/Tanks/Scripts/Components/Controls/TankControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Anthill/Examples/Tanks/Scripts/Components/NavMesh/Editor/NavMeshEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Anthill/Examples/Tanks/Scripts/Components/NavMesh/Editor/NavMeshEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Anthill/Examples/Tanks/Scripts/Core/Effects/Editor/AntEffectSpawnerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Anthill/Examples/Tanks/Scripts/Core/Effects/Editor/AntEffectSpawnerEditor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Thomas/Prefabs/NPCAnt.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Prefabs/NPCAnt.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scenes/WorkBenchProject2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scenes/WorkBenchProject2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/Detector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/Detector.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/SteeringManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/SteeringManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateDropFood.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateDropFood.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateDropFood2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateDropFood2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateGoGetFood.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateGoGetFood.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateGoKillEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateGoKillEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateGoKillEnemy2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateGoKillEnemy2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateLookForFood.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateLookForFood.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateRunAway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateRunAway.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/WorkerAntScenario.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/WorkerAntScenario.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +31,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/Cohesion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/Separation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/BecomeAbleToPickUpFood.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateRoam.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/WorkerAntScenario.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@7652a5c7e246/Shaders/Lit.shader" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -118,7 +127,7 @@
       <updated>1772850801448</updated>
       <workItem from="1772850803587" duration="12021000" />
       <workItem from="1772941195436" duration="37818000" />
-      <workItem from="1775525717856" duration="7956000" />
+      <workItem from="1775525717856" duration="19161000" />
     </task>
     <servers />
   </component>

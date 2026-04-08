@@ -1,16 +1,22 @@
 using UnityEngine;
-
-public class StateDropFood2 : MonoBehaviour
+using Anthill.AI;
+public class StateDropFood2 : AntAIState
 {
+    private SteeringManager steeringManager;
+    public override void Create(GameObject aGameObject)
+    {
+        steeringManager = aGameObject.GetComponent<SteeringManager>();
+        Debug.Log("StateDropFood2");
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Enter()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Execute(float aDeltaTime, float aTimeScale)
     {
         
+        Finish();
     }
 }

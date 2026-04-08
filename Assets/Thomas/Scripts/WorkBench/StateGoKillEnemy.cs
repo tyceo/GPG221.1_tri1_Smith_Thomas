@@ -1,16 +1,22 @@
 using UnityEngine;
-
-public class StateGoKillEnemy : MonoBehaviour
+using Anthill.AI;
+public class StateGoKillEnemy : AntAIState
 {
+    private SteeringManager steeringManager;
+    public override void Create(GameObject aGameObject)
+    {
+        steeringManager = aGameObject.GetComponent<SteeringManager>();
+        Debug.Log("StateGoKillEnemy");
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Enter()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Execute(float aDeltaTime, float aTimeScale)
     {
         
+        Finish();
     }
 }

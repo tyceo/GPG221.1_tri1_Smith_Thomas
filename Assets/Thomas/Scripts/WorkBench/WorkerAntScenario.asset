@@ -31,7 +31,7 @@ MonoBehaviour:
   actions:
   - name: LookForFood
     isDefault: 0
-    state: {fileID: 0}
+    state: {fileID: 8861761713885224327, guid: 0ac297fbd6048384f99d5a576a9fb7fc, type: 3}
     cost: 0
     position: {x: 277.3335, y: 58.666687}
     pre:
@@ -52,7 +52,7 @@ MonoBehaviour:
       value: 1
   - name: GoKillEnemy
     isDefault: 0
-    state: {fileID: 0}
+    state: {fileID: 4488775202605992550, guid: 7e7f5e72e1c8ad34687df9a0dffeb0b1, type: 3}
     cost: 0
     position: {x: 1000.0002, y: 66.00001}
     pre:
@@ -69,7 +69,7 @@ MonoBehaviour:
       value: 0
   - name: RunAway
     isDefault: 0
-    state: {fileID: 0}
+    state: {fileID: 3207906294683524922, guid: 3c3be29b5c313f941b763178d9e08ae6, type: 3}
     cost: 0
     position: {x: 708.6668, y: 352.00003}
     pre:
@@ -80,7 +80,7 @@ MonoBehaviour:
       value: 0
   - name: GoGetFood
     isDefault: 0
-    state: {fileID: 0}
+    state: {fileID: 5306573730348721410, guid: ffc39ff2b977dbb409e353ee82fbb03a, type: 3}
     cost: 0
     position: {x: 499.3333, y: 60.00004}
     pre:
@@ -99,7 +99,7 @@ MonoBehaviour:
       value: 1
   - name: BringFoodHome
     isDefault: 0
-    state: {fileID: 0}
+    state: {fileID: 5909031324700197789, guid: d9e21f506a9190c4a9e9845153b1fd96, type: 3}
     cost: 0
     position: {x: 711.0003, y: 56.999985}
     pre:
@@ -118,7 +118,7 @@ MonoBehaviour:
       value: 1
   - name: DropFood
     isDefault: 0
-    state: {fileID: 0}
+    state: {fileID: 1387851605621033624, guid: 80ad7772aa0680748a08c5045e77114f, type: 3}
     cost: 0
     position: {x: 1228.3333, y: 71.66669}
     pre:
@@ -131,7 +131,7 @@ MonoBehaviour:
       value: 0
   - name: GoKillEnemy2
     isDefault: 0
-    state: {fileID: 0}
+    state: {fileID: 1628802056830641764, guid: 3b738f35968ed9f42b13a1b43db0eed0, type: 3}
     cost: 0
     position: {x: 998.3334, y: 323.66672}
     pre:
@@ -148,7 +148,7 @@ MonoBehaviour:
       value: 0
   - name: BecomeAbleToPickUpFood
     isDefault: 0
-    state: {fileID: 0}
+    state: {fileID: 4996824352036734358, guid: 6db8a08ea281b7d4ca7b03cad2ed2f79, type: 3}
     cost: 0
     position: {x: 1422.6666, y: 84.999985}
     pre:
@@ -159,7 +159,7 @@ MonoBehaviour:
       value: 1
   - name: DropFood2
     isDefault: 0
-    state: {fileID: 0}
+    state: {fileID: 985845616393697566, guid: 2ca370cff3513024091f60bb24d213b0, type: 3}
     cost: 0
     position: {x: 1230.6667, y: 284.66666}
     pre:
@@ -170,10 +170,17 @@ MonoBehaviour:
       value: 0
     - id: 4
       value: 0
+  - name: Roam
+    isDefault: 1
+    state: {fileID: 3207906294683524922, guid: 70dba0e2b2b5b434ba1bc75ac02db040, type: 3}
+    cost: 0
+    position: {x: 266.6667, y: 380.33334}
+    pre: []
+    post: []
   goals:
   - name: FoodGetsHome
     isDefault: 1
-    position: {x: 299.99994, y: 398.6667}
+    position: {x: 491.99994, y: 400.6667}
     conditions:
     - id: 5
       value: 1
@@ -182,16 +189,16 @@ MonoBehaviour:
     isAutoUpdate: 1
     list:
     - id: 0
-      value: 1
+      value: 0
     - id: 1
       value: 0
     - id: 2
-      value: 1
+      value: 0
     - id: 3
-      value: 1
+      value: 0
     - id: 4
-      value: 1
+      value: 0
     - id: 5
       value: 0
     - id: 6
-      value: 1
+      value: 0
