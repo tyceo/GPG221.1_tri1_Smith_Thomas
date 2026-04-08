@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 62582725277014748}
   - component: {fileID: 268160487478994543}
   - component: {fileID: 1504843351277768692}
+  - component: {fileID: -7689854734603631417}
   m_Layer: 6
   m_Name: NPCAnt
   m_TagString: Untagged
@@ -256,7 +257,7 @@ MonoBehaviour:
   detector: {fileID: 0}
   rb: {fileID: 0}
   force: 10
-  showDebugRay: 1
+  showDebugRay: 0
 --- !u!114 &268160487478994543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +273,7 @@ MonoBehaviour:
   detector: {fileID: 0}
   rb: {fileID: 0}
   speed: 0.3
-  showDebugRay: 1
+  showDebugRay: 0
 --- !u!114 &1504843351277768692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,7 +289,22 @@ MonoBehaviour:
   detector: {fileID: 0}
   rb: {fileID: 0}
   speed: 0.1
-  showDebugRay: 1
+  showDebugRay: 0
+--- !u!114 &-7689854734603631417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328626245837866832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e724e36405834fa192b36cd6a4e6059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualUpdate: 0
+  thinkInterval: 0.1
+  scenario: {fileID: 11400000, guid: a676f86b88efc6a469448695dc23ff5d, type: 2}
 --- !u!1 &854056815000403482
 GameObject:
   m_ObjectHideFlags: 0

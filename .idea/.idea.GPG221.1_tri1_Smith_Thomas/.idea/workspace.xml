@@ -8,9 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GPG221.1_tri1_Smith_Thomas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GPG221.1_tri1_Smith_Thomas/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Thomas/Prefabs/NPCAnt.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Prefabs/NPCAnt.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scenes/Final.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scenes/Final.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/AstarTest/AstarPathfinding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/AstarTest/AstarPathfinding.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/Avoid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/Avoid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/SteeringManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/SteeringManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +112,8 @@
       <option name="presentableId" value="Default" />
       <updated>1772850801448</updated>
       <workItem from="1772850803587" duration="12021000" />
-      <workItem from="1772941195436" duration="24404000" />
+      <workItem from="1772941195436" duration="37818000" />
+      <workItem from="1775525717856" duration="4517000" />
     </task>
     <servers />
   </component>
