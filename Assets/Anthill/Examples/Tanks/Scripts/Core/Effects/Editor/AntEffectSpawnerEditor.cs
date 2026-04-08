@@ -254,7 +254,7 @@ namespace Anthill.Effects
 		private Vector2 DotGizmo(Vector3 aPosition, float aSize = 0.05f)
 		{
 			float s = HandleUtility.GetHandleSize(aPosition) * aSize;
-			return Handles.FreeMoveHandle(aPosition, Quaternion.identity, s, Vector3.zero, Handles.DotHandleCap);
+			var fmh_257_45_639112541576025897 = Quaternion.identity; return Handles.FreeMoveHandle(aPosition, s, Vector3.zero, Handles.DotHandleCap);
 		}
 	}
 }

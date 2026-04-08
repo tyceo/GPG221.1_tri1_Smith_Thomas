@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 268160487478994543}
   - component: {fileID: 1504843351277768692}
   - component: {fileID: -7689854734603631417}
+  - component: {fileID: 5955725267689558240}
   m_Layer: 6
   m_Name: NPCAnt
   m_TagString: Untagged
@@ -176,6 +177,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   anthill: {fileID: 0}
+  CanSeeFood: 0
+  CanSeeEnemy: 0
+  WantToKillEnemy: 0
+  HasFood: 0
+  CanPickUpFood: 0
+  IsFoodHome: 0
+  IsScared: 0
 --- !u!114 &2437899716101004988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +313,18 @@ MonoBehaviour:
   manualUpdate: 0
   thinkInterval: 0.1
   scenario: {fileID: 11400000, guid: a676f86b88efc6a469448695dc23ff5d, type: 2}
+--- !u!114 &5955725267689558240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328626245837866832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1df75f62c6f0484785ef397313a8fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &854056815000403482
 GameObject:
   m_ObjectHideFlags: 0

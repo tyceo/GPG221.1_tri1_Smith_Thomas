@@ -33,6 +33,16 @@ public class SteeringManager : MonoBehaviour
     private float timeSinceLastRecalculation = 0f;
     private bool returningToAnthill = false;
 
+
+    [Header("AI Workbench")] 
+    public bool CanSeeFood;
+    public bool CanSeeEnemy;
+    public bool WantToKillEnemy;
+    public bool HasFood;
+    public bool CanPickUpFood;
+    public bool IsFoodHome;
+    public bool IsScared;
+
     void Start()
     {
         

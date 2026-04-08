@@ -347,8 +347,8 @@ namespace Tanks
 		/// </summary>
 		public Vector2 Velocity
 		{
-			get => _body.velocity;
-			set => _body.velocity = value;
+			get => _body.linearVelocity;
+			set => _body.linearVelocity = value;
 		}
 		
 		/// <summary>

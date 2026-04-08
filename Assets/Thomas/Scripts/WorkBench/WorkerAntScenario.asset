@@ -33,7 +33,7 @@ MonoBehaviour:
     isDefault: 0
     state: {fileID: 0}
     cost: 0
-    position: {x: 282.00012, y: 62.666687}
+    position: {x: 277.3335, y: 58.666687}
     pre:
     - id: 0
       value: 0
@@ -45,27 +45,33 @@ MonoBehaviour:
       value: 0
     - id: 6
       value: 0
+    - id: 4
+      value: 1
     post:
     - id: 0
       value: 1
-  - name: TryKillEnemy
+  - name: GoKillEnemy
     isDefault: 0
     state: {fileID: 0}
     cost: 0
-    position: {x: 1006.0002, y: 92.00001}
+    position: {x: 1000.0002, y: 66.00001}
     pre:
     - id: 1
       value: 1
     - id: 6
       value: 0
+    - id: 3
+      value: 0
     post:
+    - id: 1
+      value: 0
     - id: 2
-      value: 1
+      value: 0
   - name: RunAway
     isDefault: 0
     state: {fileID: 0}
     cost: 0
-    position: {x: 838.0002, y: 357.33337}
+    position: {x: 708.6668, y: 352.00003}
     pre:
     - id: 6
       value: 1
@@ -105,6 +111,8 @@ MonoBehaviour:
       value: 0
     - id: 6
       value: 0
+    - id: 1
+      value: 0
     post:
     - id: 5
       value: 1
@@ -112,12 +120,55 @@ MonoBehaviour:
     isDefault: 0
     state: {fileID: 0}
     cost: 0
-    position: {x: 1218.3333, y: 97.66669}
+    position: {x: 1228.3333, y: 71.66669}
     pre:
     - id: 2
       value: 1
     post:
     - id: 3
+      value: 0
+    - id: 4
+      value: 0
+  - name: GoKillEnemy2
+    isDefault: 0
+    state: {fileID: 0}
+    cost: 0
+    position: {x: 998.3334, y: 323.66672}
+    pre:
+    - id: 2
+      value: 1
+    - id: 3
+      value: 0
+    - id: 6
+      value: 0
+    post:
+    - id: 2
+      value: 0
+    - id: 1
+      value: 0
+  - name: BecomeAbleToPickUpFood
+    isDefault: 0
+    state: {fileID: 0}
+    cost: 0
+    position: {x: 1422.6666, y: 84.999985}
+    pre:
+    - id: 4
+      value: 0
+    post:
+    - id: 4
+      value: 1
+  - name: DropFood2
+    isDefault: 0
+    state: {fileID: 0}
+    cost: 0
+    position: {x: 1230.6667, y: 284.66666}
+    pre:
+    - id: 1
+      value: 1
+    post:
+    - id: 3
+      value: 0
+    - id: 4
       value: 0
   goals:
   - name: FoodGetsHome
@@ -127,20 +178,20 @@ MonoBehaviour:
     - id: 5
       value: 1
   worldStates:
-  - position: {x: 451.00006, y: 572}
+  - position: {x: 425.66675, y: 619.99994}
     isAutoUpdate: 1
     list:
     - id: 0
-      value: 0
-    - id: 1
       value: 1
+    - id: 1
+      value: 0
     - id: 2
-      value: 0
+      value: 1
     - id: 3
-      value: 0
+      value: 1
     - id: 4
       value: 1
     - id: 5
       value: 0
     - id: 6
-      value: 0
+      value: 1
