@@ -71,7 +71,7 @@ MonoBehaviour:
     isDefault: 0
     state: {fileID: 3207906294683524922, guid: 3c3be29b5c313f941b763178d9e08ae6, type: 3}
     cost: 0
-    position: {x: 708.6668, y: 352.00003}
+    position: {x: 707.33344, y: 326.00003}
     pre:
     - id: 6
       value: 1
@@ -180,7 +180,7 @@ MonoBehaviour:
   goals:
   - name: FoodGetsHome
     isDefault: 1
-    position: {x: 491.99994, y: 400.6667}
+    position: {x: 493.3333, y: 343.33334}
     conditions:
     - id: 5
       value: 1
@@ -191,7 +191,7 @@ MonoBehaviour:
     - id: 0
       value: 0
     - id: 1
-      value: 0
+      value: 1
     - id: 2
       value: 0
     - id: 3

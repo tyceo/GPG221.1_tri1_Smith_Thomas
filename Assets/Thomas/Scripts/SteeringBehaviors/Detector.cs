@@ -38,7 +38,8 @@ public class Detector : MonoBehaviour
             }
         }
 
-        if (other.gameObject.layer == humanLayer)
+        //only add objects with "Human" in the name, on the Human layer, and within FOV
+        if (other.gameObject.layer == humanLayer && other.gameObject.name.Contains("Human"))
         {
             if (IsInFieldOfView(other.gameObject) && !humansInTrigger.Contains(other.gameObject))
             {

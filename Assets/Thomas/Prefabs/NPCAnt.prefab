@@ -170,7 +170,7 @@ MonoBehaviour:
   nodeGrid: {fileID: 0}
   pathfinding: {fileID: 0}
   turnTowards: {fileID: 0}
-  autoPathfind: 1
+  autoPathfind: 0
   pathRecalculateInterval: 5
   targetLocations:
   - {fileID: 0}
@@ -182,9 +182,10 @@ MonoBehaviour:
   CanSeeEnemy: 0
   WantToKillEnemy: 0
   HasFood: 0
-  CanPickUpFood: 0
+  CanPickUpFood: 1
   IsFoodHome: 0
   IsScared: 0
+  detector: {fileID: 0}
 --- !u!114 &2437899716101004988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +233,7 @@ MonoBehaviour:
   angleBasedSpeedMultiplier: 1
   maxAngularVelocity: 10
   waypointReachDistance: 1.5
-  showDebugLine: 0
+  showDebugLine: 1
   debugLineColor: {r: 0, g: 1, b: 0, a: 1}
   pathColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   showAllNodes: 0
@@ -556,6 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3963054c4fdd74692a142fb7471c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fieldOfViewAngle: 160
 --- !u!1 &5920179159205210094
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,6 +886,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -4633191737858435411, guid: 150b771c021f45d48873c0d8caddd485, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ddae6a8d7d2382649a841b2ecb931a4f, type: 2}
+    - target: {fileID: -4396642182433536433, guid: 150b771c021f45d48873c0d8caddd485, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ddae6a8d7d2382649a841b2ecb931a4f, type: 2}
+    - target: {fileID: -4008983296860226003, guid: 150b771c021f45d48873c0d8caddd485, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ddae6a8d7d2382649a841b2ecb931a4f, type: 2}
     - target: {fileID: 919132149155446097, guid: 150b771c021f45d48873c0d8caddd485, type: 3}
       propertyPath: m_Name
       value: Model

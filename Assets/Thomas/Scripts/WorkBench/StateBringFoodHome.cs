@@ -11,12 +11,16 @@ public class StateBringHomeFood : AntAIState
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Enter()
     {
-        
+        steeringManager.PathfindToAnthill();
     }
 
     public override void Execute(float aDeltaTime, float aTimeScale)
     {
-        
-        Finish();
+        if (steeringManager.IsFoodHome == true)
+        {
+            steeringManager.IsFoodHome = true;
+            Finish();
+        }
+
     }
 }

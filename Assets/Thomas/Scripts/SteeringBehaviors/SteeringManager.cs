@@ -42,6 +42,8 @@ public class SteeringManager : MonoBehaviour
     public bool CanPickUpFood;
     public bool IsFoodHome;
     public bool IsScared;
+    
+    
 
     public Detector detector;
     
@@ -207,17 +209,19 @@ public class SteeringManager : MonoBehaviour
         
         if (autoPathfind)
         {
-            if (returningToAnthill)
+            if (HasFood)
             {
                 //reached anthill, now go to a random target location
-                returningToAnthill = false;
-                PathfindToRandomTargetLocation();
+                //returningToAnthill = false;
+                
+                PathfindToAnthill();
             }
             else
             {
                 //reached target location, now return to anthill
                 returningToAnthill = true;
-                PathfindToAnthill();
+                PathfindToRandomTargetLocation();
+                
             }
         }
     }
@@ -396,8 +400,111 @@ public class SteeringManager : MonoBehaviour
             //try again
             if (autoPathfind)
             {
-                Invoke(nameof(PathfindToAnthill), 0.5f);
+                 Invoke(nameof(PathfindToAnthill), 0.5f);
             }
         }
+    }
+    
+    public void PathfindToNearestTargetLocation()
+    {
+        if (nodeGrid == null || pathfinding == null || turnTowards == null)
+        {
+            return;
+        }
+        
+        if (targetLocations.Count == 0)
+        {
+            Debug.Log("No target locations in list");
+            return;
+        }
+        
+        // Find the nearest target location
+        GameObject nearestTarget = null;
+        float nearestDistance = Mathf.Infinity;
+        
+        foreach (GameObject target in targetLocations)
+        {
+            if (target != null)
+            {
+                float distance = Vector3.Distance(transform.position, target.transform.position);
+                
+                if (distance < nearestDistance)
+                {
+                    nearestDistance = distance;
+                    nearestTarget = target;
+                }
+            }
+        }
+        
+        if (nearestTarget != null)
+        {
+            currentGoal = nearestTarget.transform.position;
+            hasGoal = true;
+            timeSinceLastRecalculation = 0f;
+            returningToAnthill = false;
+            
+            //calculate path
+            List<Node> path = pathfinding.FindPath(transform.position, currentGoal);
+            
+            if (path.Count > 0)
+            {
+                turnTowards.SetPath(path);
+            }
+            else
+            {
+                //Debug.Log("path to nearest target location failed");
+                hasGoal = false;
+                
+                //try again with random location as fallback
+                if (autoPathfind)
+                {
+                    Invoke(nameof(PathfindToRandomTargetLocation), 0.5f);
+                    Debug.Log("BIG TEST");
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("No valid target locations found");
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        /*
+        // Check if the collided object is in the targetLocations list
+        if (targetLocations.Contains(collision.gameObject))
+        {
+            HasFood = true;
+        }
+*/
+        if (collision.gameObject.name.Contains("Human"))
+        {
+            CanSeeEnemy = false;
+            WantToKillEnemy = false;
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if the collided object is in the targetLocations list
+        if (targetLocations.Contains(other.gameObject))
+        {
+            float distance = Vector3.Distance(transform.position, other.gameObject.transform.position);
+            
+            if (distance < 6f)
+            {
+                HasFood = true;
+            }
+        }
+/*
+        if (other.gameObject.name.Contains("Human"))
+        {
+            CanSeeEnemy = false;
+            WantToKillEnemy = false;
+            Destroy(other.gameObject);
+        }
+        */
     }
 }

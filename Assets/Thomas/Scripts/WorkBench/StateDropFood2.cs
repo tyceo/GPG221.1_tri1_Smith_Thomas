@@ -16,7 +16,8 @@ public class StateDropFood2 : AntAIState
 
     public override void Execute(float aDeltaTime, float aTimeScale)
     {
-        
+        steeringManager.HasFood = false;
+        steeringManager.CanPickUpFood = false;
         Finish();
     }
 }
