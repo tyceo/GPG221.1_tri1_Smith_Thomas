@@ -405,6 +405,34 @@ public class SteeringManager : MonoBehaviour
         }
     }
     
+    public void PathfindToEnemy(GameObject enemy)
+    {
+        if (nodeGrid == null || pathfinding == null || turnTowards == null || enemy == null)
+        {
+            Debug.Log("Cannot pathfind to enemy - missing references");
+            return;
+        }
+        
+        currentGoal = enemy.transform.position;
+        hasGoal = true;
+        timeSinceLastRecalculation = 0f;
+        returningToAnthill = false;
+        
+        //calculate path
+        List<Node> path = pathfinding.FindPath(transform.position, currentGoal);
+        
+        if (path.Count > 0)
+        {
+            turnTowards.SetPath(path);
+            Debug.Log("Path set to enemy: " + enemy.name);
+        }
+        else
+        {
+            Debug.Log("Failed to find path to enemy");
+            hasGoal = false;
+        }
+    }
+    
     public void PathfindToNearestTargetLocation()
     {
         if (nodeGrid == null || pathfinding == null || turnTowards == null)

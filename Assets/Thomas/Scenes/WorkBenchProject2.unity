@@ -3329,7 +3329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spacing: 2
-  gridSize: 2
+  gridSize: 1
   spawnOrigin: {fileID: 1366476720}
   prefabs:
   - {fileID: 3058421378387509430}

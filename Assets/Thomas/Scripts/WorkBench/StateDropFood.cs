@@ -6,7 +6,7 @@ public class StateDropFood : AntAIState
     public override void Create(GameObject aGameObject)
     {
         steeringManager = aGameObject.GetComponent<SteeringManager>();
-        Debug.Log("StateDropFood");
+        //Debug.Log("StateDropFood");
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Enter()
