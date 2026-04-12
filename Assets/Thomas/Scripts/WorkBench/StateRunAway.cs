@@ -12,17 +12,17 @@ public class StateRunAway : AntAIState
         steeringManager = aGameObject.GetComponent<SteeringManager>();
         npcAnt = aGameObject;
         
-        // Find EarsAndVoice as a child of the NPCAnt GameObject
+        //find EarsAndVoice as a child of the NPCAnt GameObject
         Transform earsAndVoiceTransform = aGameObject.transform.Find("EarsAndVoice");
         if (earsAndVoiceTransform != null)
         {
             earsAndVoice = earsAndVoiceTransform.gameObject;
-            Debug.Log("Found EarsAndVoice");
+            //Debug.Log("Found EarsAndVoice");
         }
         else
         {
-            Debug.LogWarning("EarsAndVoice GameObject not found! Searching in children...");
-            // Try searching recursively in case it's nested deeper
+            //Debug.LogWarning("EarsAndVoice GameObject not found! Searching in children...");
+            //recursively
             earsAndVoiceTransform = aGameObject.transform.Find("EarsAndVoice");
             if (earsAndVoiceTransform == null)
             {
@@ -31,21 +31,21 @@ public class StateRunAway : AntAIState
                     if (child.name == "EarsAndVoice")
                     {
                         earsAndVoice = child.gameObject;
-                        Debug.Log("Found EarsAndVoice in children");
+                        //Debug.Log("Found EarsAndVoice in children");
                         break;
                     }
                 }
             }
         }
         
-        Debug.Log("StateRunAway");
+        //Debug.Log("StateRunAway");
     }
 
     public override void Enter()
     {
         if (earsAndVoice != null && npcAnt != null)
         {
-            // Use the SteeringManager MonoBehaviour to run the coroutine
+            //use the SteeringManager to run the coroutine
             if (steeringManager != null)
             {
                 steeringManager.StartCoroutine(ShowEarsAndVoiceTemporarily());

@@ -47,7 +47,7 @@ public class StateGoKillEnemy2 : AntAIState
         }
         else
         {
-            Debug.Log("No Human found in scene");
+            //Debug.Log("No Human found in scene");
             steeringManager.WantToKillEnemy = false;
             Finish();
         }
@@ -59,7 +59,7 @@ public class StateGoKillEnemy2 : AntAIState
         
         if (timeInState >= maxTimeInState)
         {
-            Debug.Log("StateGoKillEnemy2 timed out after 10 seconds");
+            //Debug.Log("StateGoKillEnemy2 timed out after 10 seconds");
             steeringManager.WantToKillEnemy = false;
             Finish();
             return;

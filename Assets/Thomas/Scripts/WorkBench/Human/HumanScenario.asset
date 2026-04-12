@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f22e7053ea04ed0922308786facc8c, type: 3}
+  m_Name: HumanScenario
+  m_EditorClassIdentifier: 
+  conditions:
+    list:
+    - id: 0
+      name: CanSeeAlien
+    - id: 1
+      name: CanSeeMultipleAliens
+    - id: 2
+      name: CanSeeMotherShip
+    - id: 3
+      name: IsStudyingShip
+  actions:
+  - name: FreezeAndPray
+    isDefault: 0
+    state: {fileID: 6610801674039963521, guid: 545f14fa82fb9584baaeba4572dbb156, type: 3}
+    cost: 0
+    position: {x: 535.6667, y: 309.66666}
+    pre:
+    - id: 1
+      value: 1
+    post:
+    - id: 0
+      value: 0
+    - id: 1
+      value: 0
+  - name: RunAway
+    isDefault: 0
+    state: {fileID: 8134120101886367976, guid: c2c8066e927729248b5cd54e3b16f9d4, type: 3}
+    cost: 0
+    position: {x: 761.0002, y: 315.66666}
+    pre:
+    - id: 1
+      value: 0
+    - id: 0
+      value: 1
+    post:
+    - id: 0
+      value: 0
+    - id: 1
+      value: 0
+  - name: Wander
+    isDefault: 1
+    state: {fileID: 3488678352301334613, guid: 9bb4825f884a5ff408f34f3e1f21b941, type: 3}
+    cost: 0
+    position: {x: 311.66663, y: 306.33337}
+    pre:
+    - id: 0
+      value: 0
+    - id: 1
+      value: 0
+    - id: 2
+      value: 0
+    post: []
+  - name: InspectMotherShip
+    isDefault: 0
+    state: {fileID: 2698566779908211994, guid: ee801adaf67d97a4ab13f5610a7d64a2, type: 3}
+    cost: 0
+    position: {x: 976.0001, y: 312.99994}
+    pre:
+    - id: 2
+      value: 1
+    - id: 0
+      value: 0
+    - id: 1
+      value: 0
+    post:
+    - id: 3
+      value: 1
+  goals:
+  - name: StudyMotherShip
+    isDefault: 1
+    position: {x: 303, y: 618.66675}
+    conditions:
+    - id: 3
+      value: 1
+  worldStates:
+  - position: {x: 565.6669, y: 607.6668}
+    isAutoUpdate: 1
+    list:
+    - id: 0
+      value: 0
+    - id: 1
+      value: 1
+    - id: 2
+      value: 1
+    - id: 3
+      value: 0

@@ -6,9 +6,10 @@ public class AlienListen : MonoBehaviour
 
     void Start()
     {
-        // Find the AlienSpeak component on the EarsAndVoice child (including inactive objects)
+
         alienSpeak = GetComponentInChildren<AlienSpeak>(true);
         
+        //add listener for when another NPC/ Alien is detected
         if (alienSpeak != null)
         {
             alienSpeak.onNPCDetected.AddListener(OnNPCHeard);
@@ -19,6 +20,7 @@ public class AlienListen : MonoBehaviour
         }
     }
 
+    //if another alien is scared they scream and make all nearby aliens scared as well and then work together to kill the human
     private void OnNPCHeard(SoundEmitter soundEmitter)
     {
         SteeringManager detectedNPCSteeringManager = soundEmitter.GetComponent<SteeringManager>();

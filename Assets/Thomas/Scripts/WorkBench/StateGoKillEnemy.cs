@@ -48,7 +48,7 @@ public class StateGoKillEnemy : AntAIState
         }
         else
         {
-            Debug.Log("No Human found in the scene");
+            //Debug.Log("No Human found in the scene");
             steeringManager.WantToKillEnemy = false;
             Finish();
         }

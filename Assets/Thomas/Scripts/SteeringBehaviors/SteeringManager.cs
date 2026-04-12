@@ -424,11 +424,11 @@ public class SteeringManager : MonoBehaviour
         if (path.Count > 0)
         {
             turnTowards.SetPath(path);
-            Debug.Log("Path set to enemy: " + enemy.name);
+            //Debug.Log("Path set to enemy: " + enemy.name);
         }
         else
         {
-            Debug.Log("Failed to find path to enemy");
+            //Debug.Log("Failed to find path to enemy");
             hasGoal = false;
         }
     }
@@ -442,11 +442,11 @@ public class SteeringManager : MonoBehaviour
         
         if (targetLocations.Count == 0)
         {
-            Debug.Log("No target locations in list");
+            //Debug.Log("No target locations in list");
             return;
         }
         
-        // Find the nearest target location
+        //find the nearest target location
         GameObject nearestTarget = null;
         float nearestDistance = Mathf.Infinity;
         
@@ -493,7 +493,7 @@ public class SteeringManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("No valid target locations found");
+            //Debug.Log("No valid target locations found");
         }
     }
 
@@ -516,7 +516,7 @@ public class SteeringManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the collided object is in the targetLocations list
+        //check if the collided object is in the targetLocations list
         if (targetLocations.Contains(other.gameObject))
         {
             float distance = Vector3.Distance(transform.position, other.gameObject.transform.position);
@@ -526,13 +526,14 @@ public class SteeringManager : MonoBehaviour
                 HasFood = true;
             }
         }
-/*
+
         if (other.gameObject.name.Contains("Human"))
         {
-            CanSeeEnemy = false;
-            WantToKillEnemy = false;
-            Destroy(other.gameObject);
+            CanSeeEnemy = true;
+            IsScared = true;
+            //WantToKillEnemy = false;
+            
         }
-        */
+        
     }
 }

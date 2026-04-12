@@ -8,18 +8,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GPG221.1_tri1_Smith_Thomas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GPG221.1_tri1_Smith_Thomas/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Thomas/Prefabs/NPCAnt.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Prefabs/NPCAnt.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scenes/WorkBenchProject2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scenes/WorkBenchProject2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/OtherProject2/AlienListen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/OtherProject2/AlienListen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/OtherProject2/AlienSpeak.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/OtherProject2/AlienSpeak.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/SteeringManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/SteeringBehaviors/SteeringManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateBecomeAbleToPickUpFood.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateBecomeAbleToPickUpFood.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateBringFoodHome.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateBringFoodHome.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateDropFood.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateDropFood.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateDropFood2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateDropFood2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateGoGetFood.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateGoGetFood.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateGoKillEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateGoKillEnemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateGoKillEnemy2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateGoKillEnemy2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateLookForFood.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateLookForFood.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateRoam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateRoam.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateRunAway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/StateRunAway.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/WorkerAntScenario.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Thomas/Scripts/WorkBench/WorkerAntScenario.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +124,7 @@
       <updated>1772850801448</updated>
       <workItem from="1772850803587" duration="12021000" />
       <workItem from="1772941195436" duration="37818000" />
-      <workItem from="1775525717856" duration="50795000" />
+      <workItem from="1775525717856" duration="67897000" />
     </task>
     <servers />
   </component>
